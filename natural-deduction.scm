@@ -59,3 +59,15 @@
          (t-var (#(set (_.0)) entails _.0))
          (#(set) entails (implies _.0 _.0))) (#(set) entails (implies A A))) (sym _.0))))
 
+(test "implies-1"
+  (run-unique 10 (q)
+    (deducto (set) q))
+  '(((implies _.0 _.0) (sym _.0)) ((implies _.0 (implies _.1 _.0)) (sym _.0))
+    ((implies _.0 (implies _.1 _.1)) (sym _.1))
+    ((implies _.0 (implies _.1 (implies _.2 _.0))) (sym _.0))
+    ((implies _.0 (implies _.1 (implies _.2 _.1))) (sym _.1))
+    ((implies _.0 (implies _.1 (implies _.2 _.2))) (sym _.2))
+    ((implies _.0 (implies _.1 (implies _.2 (implies _.3 _.0)))) (sym _.0))
+    ((implies _.0 (implies _.1 (implies _.2 (implies _.3 _.1)))) (sym _.1))
+    ((implies _.0 (implies _.1 (implies _.2 (implies _.3 _.2)))) (sym _.2))
+    ((implies _.0 (implies _.1 (implies _.2 (implies _.3 _.3)))) (sym _.3))))
